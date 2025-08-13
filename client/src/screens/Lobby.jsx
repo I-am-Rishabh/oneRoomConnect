@@ -2,8 +2,9 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSocket } from "../context/SocketProvider";
 import "./Lobby.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const LobbyScreen = () => {
-  // eslint-disable-next-line no-unused-vars
   const [email, setEmail] = useState("");
   const [room, setRoom] = useState("");
 
@@ -20,8 +21,7 @@ const LobbyScreen = () => {
 
   const handleJoinRoom = useCallback(
     (data) => {
-      // eslint-disable-next-line no-unused-vars
-      const { email, room } = data;
+      const { room } = data;
       navigate(`/room/${room}`);
     },
     [navigate]
@@ -35,32 +35,48 @@ const LobbyScreen = () => {
   }, [socket, handleJoinRoom]);
 
   return (
-    <div>
-      <h1 class="heading">Lobby</h1>
-      <form onSubmit={handleSubmitForm}>
-        <label htmlFor="email" class="heading2">
-          Email ID
+  <div className="lobby-outer">
+  <div className="lobby-inner">
+    {/* Gradient Heading */}
+    <h1 className="project-heading-gradient">OneRoomConnect</h1>
+    <form onSubmit={handleSubmitForm}>
+      <h2 className="login-title">Join a Room</h2>
+      <div className="mb-4">
+        <label htmlFor="email" className="form-label">
+          Gmail
         </label>
         <input
           type="email"
           id="email"
+          className="form-control lobby-input-lg"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Enter your Gmail"
+          required
         />
-        <br />
-        <label htmlFor="room" class="heading2">
-          Room Number
+      </div>
+      <div className="mb-4">
+        <label htmlFor="room" className="form-label">
+          Room Code
         </label>
         <input
           type="text"
           id="room"
+          className="form-control"
           value={room}
           onChange={(e) => setRoom(e.target.value)}
+          placeholder="Enter room code"
+          required
         />
-        <br />
-        <button>Join</button>
-      </form>
-    </div>
+      </div>
+      <button className="btn join-btn w-100" type="submit">
+        Join
+      </button>
+    </form>
+  </div>
+</div>
+
+
   );
 };
 

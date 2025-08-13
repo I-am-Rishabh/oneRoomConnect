@@ -1,0 +1,109 @@
+.room-outer {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #13ebd0 70%, #08bc97 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.room-inner {
+  background: #181b23;
+  border-radius: 1.6rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.33), 0 1.5px 4px rgba(31,202,160,0.06);
+  padding: 3rem 3rem;           /* more padding around content */
+  max-width: 1500px;            /* increase width to fit two big videos */
+  width: 100%;
+  min-height: 90vh;             /* almost full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  /* keep heading/buttons on top */
+}
+
+.project-heading-gradient {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  margin-bottom: 1.7rem;
+  text-align: center;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  background: linear-gradient(90deg, #1fcaa0 0%, #fdde6a 120%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-shadow: 0 2px 12px rgba(31,202,160,0.09);
+}
+
+.room-title {
+  color: #eafaf7;
+  font-size: 1.28rem;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.connect-status {
+  color: #a2b4bd;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+.send-btn, .call-btn {
+  background: linear-gradient(90deg, #1fcaa0 0%, #fdde6a 120%);
+  border: none;
+  color: #181b23;
+  font-weight: 700;
+  font-size: 1.09rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 0.56rem;
+  box-shadow: 0 2px 10px rgba(31,202,160,0.11);
+  letter-spacing: 0.05em;
+  transition: filter 0.18s, background 0.2s;
+}
+.send-btn:hover, .call-btn:hover {
+  filter: brightness(0.97) drop-shadow(0 0 6px #1fcaa0);
+  cursor: pointer;
+}
+
+.video-box {
+  background: #222632;
+  border-radius: 1.1rem;
+  padding: 1.6rem 1.2rem 1.2rem 1.2rem; /* more padding */
+  box-shadow: 0 2px 14px rgba(31,202,160,0.06);
+  max-width: 640px;   /* was 320px—now doubled */
+  width: 100%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stream-video {
+  width: 100%;
+  max-height: 400px;   /* was ~200px—now doubled */
+  border-radius: 0.8rem;
+  border: 2.5px solid #23987d;
+  background: #181b23;
+  object-fit: cover;
+}
+
+.stream-label {
+  color: #eafaf7;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+
+
+.video-container-row {
+  display: flex;
+  flex-direction: row;      /* side by side! */
+  justify-content: center;  /* horizontally centered in parent */
+  gap: 1.5rem;              /* space between videos */
+  flex-wrap: nowrap;        /* ensures they stay in one row */
+}

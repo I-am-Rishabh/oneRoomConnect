@@ -1,7 +1,8 @@
 import React, { useEffect, useCallback, useState, useRef } from "react";
 import peer from "../service/peer";
 import { useSocket } from "../context/SocketProvider";
-import "./RoomPage.css"; // Import responsive styles
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./Room.css";
 
 const RoomPage = () => {
   const socket = useSocket();
@@ -12,7 +13,6 @@ const RoomPage = () => {
   const myVideoRef = useRef();
   const remoteVideoRef = useRef();
 
-  // Assign media streams to video elements
   useEffect(() => {
     if (myVideoRef.current && myStream) {
       myVideoRef.current.srcObject = myStream;
@@ -126,36 +126,52 @@ const RoomPage = () => {
   ]);
 
   return (
-    <div className="room-container">
-      <h1>Room Page</h1>
-      <h4>{remoteSocketId ? "Connected" : "No one in room"}</h4>
-      {myStream && <button onClick={sendStreams}>Send Stream</button>}
-      {remoteSocketId && <button onClick={handleCallUser}>CALL</button>}
+    <div className="room-outer">
+      <div className="room-inner">
+        {/* Project Heading */}
+        <h1 className="project-heading-gradient">oneRoomConnect</h1>
 
-      <div className="stream-container">
-        {myStream && (
-          <div>
-            <h1>My Stream</h1>
-            <video
-              className="my-stream"
-              ref={myVideoRef}
-              autoPlay
-              playsInline
-              muted
-            />
-          </div>
-        )}
-        {remoteStream && (
-          <div>
-            <h1>Remote Stream</h1>
-            <video
-              className="remote-stream"
-              ref={remoteVideoRef}
-              autoPlay
-              playsInline
-            />
-          </div>
-        )}
+        <h2 className="room-title mb-1">Room Page</h2>
+        <h5 className="connect-status mb-4">{remoteSocketId ? "Connected" : "No one in room"}</h5>
+
+        <div className="mb-4 d-flex gap-3 justify-content-center">
+          {myStream && (
+            <button className="btn send-btn" onClick={sendStreams}>
+              Send Stream
+            </button>
+          )}
+          {remoteSocketId && (
+            <button className="btn call-btn" onClick={handleCallUser}>
+              CALL
+            </button>
+          )}
+        </div>
+
+        <div className="video-container-row">
+          {myStream && (
+            <div className="video-box">
+              <h6 className="stream-label">My Stream</h6>
+              <video
+                className="stream-video"
+                ref={myVideoRef}
+                autoPlay
+                playsInline
+                muted
+              />
+            </div>
+          )}
+          {remoteStream && (
+            <div className="video-box">
+              <h6 className="stream-label">Remote Stream</h6>
+              <video
+                className="stream-video"
+                ref={remoteVideoRef}
+                autoPlay
+                playsInline
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
