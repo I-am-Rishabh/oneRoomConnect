@@ -12,14 +12,14 @@
   background: #181b23;
   border-radius: 1.6rem;
   box-shadow: 0 8px 40px rgba(0,0,0,0.33), 0 1.5px 4px rgba(31,202,160,0.06);
-  padding: 3rem 3rem;           /* more padding around content */
-  max-width: 1500px;            /* increase width to fit two big videos */
+  padding: 3rem;
+  max-width: 1500px;
   width: 100%;
-  min-height: 90vh;             /* almost full viewport height */
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;  /* keep heading/buttons on top */
+  justify-content: flex-start;
 }
 
 .project-heading-gradient {
@@ -33,7 +33,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   text-shadow: 0 2px 12px rgba(31,202,160,0.09);
 }
 
@@ -64,6 +63,7 @@
   letter-spacing: 0.05em;
   transition: filter 0.18s, background 0.2s;
 }
+
 .send-btn:hover, .call-btn:hover {
   filter: brightness(0.97) drop-shadow(0 0 6px #1fcaa0);
   cursor: pointer;
@@ -72,9 +72,9 @@
 .video-box {
   background: #222632;
   border-radius: 1.1rem;
-  padding: 1.6rem 1.2rem 1.2rem 1.2rem; /* more padding */
+  padding: 1.6rem 1.2rem 1.2rem 1.2rem;
   box-shadow: 0 2px 14px rgba(31,202,160,0.06);
-  max-width: 640px;   /* was 320px—now doubled */
+  max-width: 640px;
   width: 100%;
   min-width: 400px;
   display: flex;
@@ -84,7 +84,7 @@
 
 .stream-video {
   width: 100%;
-  max-height: 400px;   /* was ~200px—now doubled */
+  max-height: 400px;
   border-radius: 0.8rem;
   border: 2.5px solid #23987d;
   background: #181b23;
@@ -98,12 +98,45 @@
   margin-bottom: 7px;
 }
 
-
-
 .video-container-row {
   display: flex;
-  flex-direction: row;      /* side by side! */
-  justify-content: center;  /* horizontally centered in parent */
-  gap: 1.5rem;              /* space between videos */
-  flex-wrap: nowrap;        /* ensures they stay in one row */
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: nowrap; /* side-by-side on large screens */
+}
+
+
+@media screen and (max-width: 1024px) {
+  .video-box {
+    min-width: 300px;
+    max-width: 480px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .video-container-row {
+    flex-direction: column; /* stack vertically on tablets/phones */
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .video-box {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .stream-video {
+    max-height: 300px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .room-inner {
+    padding: 2rem 1rem;
+  }
+  .project-heading-gradient {
+    font-size: 1.5rem;
+  }
+  .stream-video {
+    max-height: 230px;
+  }
 }
