@@ -76,19 +76,15 @@ The app allows two users to join a "room" and start a live video/audio conversat
 git clone https://github.com/I-am-Rishabh/oneRoomConnect.git
 cd oneRoomConnect
 
-text
-
 ### 2. Backend Setup
 cd server
 npm install
 
-text
 Create a `.env` file in the `server/` directory and configure environment vars as needed (e.g., server port).
 
 Start the backend:
-npm start
+node index.js
 
-text
 By default, this will run on: http://localhost:8000
 
 ### 3. Frontend Setup
@@ -96,7 +92,7 @@ In a **new terminal**, run:
 cd client
 npm install
 
-Create a `.env` file in the `client/` directory:REACT_APP_API_URL=http://localhost:8000
+Create a `.env` file in the `client/` directory: REACT_APP_API_URL=http://localhost:8000
 
 
 Start the frontend development server:npm start
